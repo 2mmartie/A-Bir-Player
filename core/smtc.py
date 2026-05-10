@@ -7,22 +7,22 @@ from typing import Optional
 from PyQt5.QtCore import QObject, pyqtSignal
 
 def _get_winrt():
-    # Try winsdk first (preferred)
-    try:
-        import winsdk.windows.media as wm
-        import winsdk.windows.media.playback as wmp
-        import winsdk.windows.storage.streams as streams
-        import winsdk.windows.foundation as wf
-        return wm, wmp, streams, wf
-    except ImportError:
-        pass
-        
-    # Fallback to older winrt package
+    # Try modern modular winrt first (preferred)
     try:
         import winrt.windows.media as wm
         import winrt.windows.media.playback as wmp
         import winrt.windows.storage.streams as streams
         import winrt.windows.foundation as wf
+        return wm, wmp, streams, wf
+    except ImportError:
+        pass
+        
+    # Fallback to deprecated winsdk
+    try:
+        import winsdk.windows.media as wm
+        import winsdk.windows.media.playback as wmp
+        import winsdk.windows.storage.streams as streams
+        import winsdk.windows.foundation as wf
         return wm, wmp, streams, wf
     except ImportError:
         return None, None, None, None

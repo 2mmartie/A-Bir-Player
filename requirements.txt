@@ -5,4 +5,9 @@ mutagen>=1.47.0
 numpy>=1.24.0
 pylast>=5.0.0
 comtypes>=1.4.0
-winsdk>=1.0.0b10
+winrt-runtime
+winrt-Windows.Foundation
+winrt-Windows.Storage.Streams
+winrt-Windows.Media
+winrt-Windows.Media.Playback
+demucs

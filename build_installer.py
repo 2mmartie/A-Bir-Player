@@ -72,8 +72,17 @@ def main():
             shutil.rmtree(target_dir)
         
         shutil.copytree(source_dir, target_dir)
-        print(f"\nBAŞARILI! Yeni sürüm arşivlendi: {target_dir}")
-        print(f"Arkadaşınla paylaşacağın klasör: LossLessPlayer_v{version}")
+        
+        # 4. ZIP Oluştur
+        zip_filename = os.path.join(dist_root, f"A-Bir_Player_v{version}_Portable")
+        print(f"\n>>> ZIP Arşivi Oluşturuluyor: {zip_filename}.zip...")
+        shutil.make_archive(zip_filename, 'zip', target_dir)
+
+        print(f"\nBAŞARILI! Her şey hazır.")
+        print(f"Versiyon: v{version}")
+        print(f"Klasör: {target_dir}")
+        print(f"ZIP Dosyası: {zip_filename}.zip")
+        print("\nKullanıcı bu ZIP dosyasını indirip 'A-Bir Player.exe'yi çalıştırması yeterli.")
     else:
         print("\nBir sorun oluştu, build klasörü bulunamadı.")
 
