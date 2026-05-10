@@ -1,0 +1,31 @@
+{
+  "lastfm": {
+    "enabled": false,
+    "api_key": "",
+    "api_secret": "",
+    "username": "",
+    "password": ""
+  },
+  "library_paths": [],
+  "last_track": "",
+  "last_position": 0,
+  "theme": {
+    "primary_color": "#1DB954",
+    "bg_color": "#121212",
+    "card_bg": "#181818",
+    "font_family": "Inter",
+    "sidebar_bg": "#121212",
+    "bottom_bg": "#121212",
+    "bg_image": "",
+    "win_opacity": 25,
+    "side_opacity": 100,
+    "bot_opacity": 100,
+    "card_opacity": 100,
+    "glass_mode": "custom",
+    "hf_token": "",
+    "ai_mode": "local",
+    "auto_text_color": true,
+    "custom_text_color": "#FFFFFF"
+  },
+  "language": "en"
+}

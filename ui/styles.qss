@@ -1,0 +1,492 @@
+/*
+ * Lossless Player — Professional Design System
+ * Apple/Spotify Grade — v4.0
+ */
+
+/* ── Reset & Base ── */
+* {
+    font-family: "Inter", "SF Pro Display", "Segoe UI", sans-serif;
+    color: @TEXT_COLOR@;
+    outline: none;
+    border-image: none;
+}
+
+QWidget {
+    background-color: transparent;
+}
+
+/* ── Window Layers ── */
+QMainWindow, #CentralWidget {
+    background-color: transparent;
+}
+
+#MainWindowOverlay {
+    background-color: @BG_COLOR@;
+}
+
+#MainWindowBG {
+    background-color: transparent;
+}
+
+/* ── Dialog (Settings) — Always fully legible ── */
+QDialog {
+    background-color: @DIALOG_BG@;
+    border: 1px solid rgba(128, 128, 128, 0.15);
+    color: @TEXT_COLOR@;
+}
+
+QDialog QLabel {
+    color: @DIALOG_TEXT@;
+}
+
+QDialog QCheckBox, QDialog QRadioButton {
+    color: @DIALOG_TEXT@;
+}
+
+QDialog QGroupBox {
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 10px;
+    margin-top: 20px;
+    padding-top: 18px;
+    color: @DIALOG_TEXT@;
+}
+
+QDialog QGroupBox::title {
+    color: @PRIMARY_COLOR@;
+    subcontrol-origin: margin;
+    left: 12px;
+    font-weight: 700;
+    font-size: 11px;
+}
+
+QDialog QComboBox, QDialog QLineEdit {
+    background-color: rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    padding: 6px 10px;
+    color: @DIALOG_TEXT@;
+}
+
+QDialog QPushButton, QDialogButtonBox QPushButton {
+    background-color: @PRIMARY_COLOR@ !important;
+    color: @PRIMARY_TEXT@ !important;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 20px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+QDialog QPushButton:hover, QDialogButtonBox QPushButton:hover {
+    background-color: @PRIMARY_HOVER@ !important;
+}
+
+/* Secondary buttons inside dialog widgets (tabs, scroll areas) */
+QDialog QWidget QPushButton {
+    background-color: rgba(128, 128, 128, 0.15);
+    color: @DIALOG_TEXT@;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+/* ── Sidebar ── */
+#Sidebar {
+    background-color: @SIDEBAR_BG@;
+    min-width: 200px;
+    max-width: 200px;
+    border-right: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+#SidebarLabel {
+    color: @SIDE_TEXT@;
+    font-size: 20px;
+    font-weight: 900;
+    padding: 28px 20px 8px 20px;
+    letter-spacing: -0.5px;
+}
+
+#SearchInput {
+    background-color: rgba(128, 128, 128, 0.08);
+    border: 1px solid rgba(128, 128, 128, 0.12);
+    border-radius: 16px;
+    padding: 8px 14px;
+    margin: 8px 12px 16px 12px;
+    color: @SIDE_TEXT@;
+    font-size: 13px;
+}
+
+#SearchInput:focus {
+    border: 1.5px solid @PRIMARY_COLOR@;
+    background-color: rgba(128, 128, 128, 0.12);
+}
+
+/* Sidebar nav buttons */
+#Sidebar QPushButton {
+    background-color: rgba(128, 128, 128, 0.12);
+    color: @SIDE_TEXT@;
+    text-align: left;
+    padding: 11px 20px;
+    margin: 2px 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid rgba(128, 128, 128, 0.15);
+}
+
+#Sidebar QPushButton:hover {
+    color: @SIDE_TEXT@;
+    background-color: rgba(128, 128, 128, 0.22);
+    border: 1px solid rgba(128, 128, 128, 0.3);
+}
+
+#Sidebar QPushButton[active="true"] {
+    background-color: @PRIMARY_COLOR@;
+    color: white;
+    font-weight: 700;
+    border: none;
+}
+
+/* ── Main Content ── */
+#MainContent {
+    background-color: transparent;
+}
+
+QScrollArea {
+    border: none;
+    background-color: transparent;
+}
+
+/* ── Cards — Album & Quick Pick ── */
+#AlbumCard, #StatsHero, #StatCard {
+    background-color: @CARD_BG@;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+}
+
+#AlbumCard:hover {
+    border: 1px solid @PRIMARY_COLOR@;
+}
+
+/* Quick Pick cards: horizontal pill style like Spotify */
+#QuickPickCard {
+    background-color: @CARD_BG@;
+    border: 1px solid rgba(128, 128, 128, 0.12);
+    border-radius: 8px;
+}
+
+#QuickPickCard:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#AlbumCardTitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: @CARD_TEXT@;
+}
+
+#AlbumCardArtist {
+    font-size: 13px;
+    color: @CARD_SUB@;
+}
+
+/* ── Top Bar ── */
+#TopBar {
+    background-color: rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+#PageTitle {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: @TEXT_COLOR@;
+}
+
+#TopBarSearch {
+    background-color: rgba(128, 128, 128, 0.1);
+    border: 1px solid rgba(128, 128, 128, 0.18);
+    border-radius: 19px;
+    padding: 6px 16px;
+    font-size: 13px;
+    color: @TEXT_COLOR@;
+}
+
+#TopBarSearch:focus {
+    border: 1.5px solid @PRIMARY_COLOR@;
+    background-color: rgba(128, 128, 128, 0.16);
+}
+
+/* ── Track Rows (Album Detail) ── */
+#TrackRowWidget {
+    background-color: transparent;
+    border-radius: 8px;
+    margin: 0 4px;
+}
+
+#TrackRowWidget:hover {
+    background-color: rgba(128, 128, 128, 0.08);
+}
+
+#TrackRowWidget[active="true"] {
+    background-color: rgba(128, 128, 128, 0.12);
+}
+
+#ActiveIndicator {
+    background-color: @PRIMARY_COLOR@;
+    border-radius: 2px;
+}
+
+/* ── Bottom Player Bar ── */
+#BottomBar {
+    background-color: @BOTTOM_BAR_BG@;
+    min-height: 90px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Seek slider */
+#BottomSeekSlider::groove:horizontal {
+    height: 4px;
+    background: rgba(128, 128, 128, 0.2);
+    border-radius: 2px;
+}
+
+#BottomSeekSlider::sub-page:horizontal {
+    background: @PRIMARY_COLOR@;
+    border-radius: 2px;
+}
+
+#BottomSeekSlider::handle:horizontal {
+    background: white;
+    width: 14px;
+    height: 14px;
+    margin: -5px 0;
+    border-radius: 7px;
+}
+
+/* Play button */
+#BottomPlayBtn {
+    background-color: @PRIMARY_COLOR@;
+    color: white;
+    border-radius: 24px;
+    border: none;
+}
+
+#BottomPlayBtn:hover {
+    background-color: @PRIMARY_HOVER@;
+}
+
+/* Control buttons — solid tinted glass for guaranteed visibility */
+#BottomPrevBtn, #BottomNextBtn, #BottomShuffleBtn, #BottomRepeatBtn {
+    background-color: rgba(128, 128, 128, 0.22);
+    border: 1px solid rgba(128, 128, 128, 0.35);
+    border-radius: 18px;
+    padding: 0;
+}
+
+#BottomPrevBtn:hover, #BottomNextBtn:hover,
+#BottomShuffleBtn:hover, #BottomRepeatBtn:hover {
+    background-color: rgba(128, 128, 128, 0.38);
+    border: 1px solid rgba(128, 128, 128, 0.55);
+}
+
+#BottomShuffleBtn[active="true"], #BottomRepeatBtn[active="true"] {
+    background-color: rgba(255, 133, 161, 0.25);
+    border: 1.5px solid @PRIMARY_COLOR@;
+}
+
+/* Volume slider */
+QSlider::groove:horizontal {
+    height: 4px;
+    background: rgba(128, 128, 128, 0.2);
+    border-radius: 2px;
+}
+
+QSlider::sub-page:horizontal {
+    background: @PRIMARY_COLOR@;
+    border-radius: 2px;
+}
+
+QSlider::handle:horizontal {
+    background: white;
+    width: 12px;
+    height: 12px;
+    margin: -4px 0;
+    border-radius: 6px;
+}
+
+/* ── General Buttons (outside sidebar/dialog) ── */
+QPushButton {
+    background-color: rgba(128, 128, 128, 0.12);
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 10px;
+    padding: 8px 18px;
+    font-weight: 600;
+    font-size: 13px;
+    color: @TEXT_COLOR@;
+}
+
+QPushButton:hover {
+    background-color: rgba(128, 128, 128, 0.22);
+    border: 1px solid rgba(128, 128, 128, 0.35);
+}
+
+/* ── Scrollbars ── */
+QScrollBar:vertical {
+    background: transparent;
+    width: 8px;
+    margin: 0;
+}
+
+QScrollBar::handle:vertical {
+    background: rgba(128, 128, 128, 0.25);
+    min-height: 30px;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: rgba(128, 128, 128, 0.45);
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0;
+}
+
+/* ── Context Menu ── */
+QMenu {
+    background-color: @CARD_BG@;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    padding: 4px;
+    border-radius: 10px;
+}
+
+QMenu::item {
+    padding: 8px 28px;
+    border-radius: 6px;
+    color: @TEXT_COLOR@;
+    font-size: 13px;
+}
+
+QMenu::item:selected {
+    background-color: rgba(128, 128, 128, 0.12);
+}
+
+/* ── Tab Widget (Settings) ── */
+QTabWidget::pane {
+    border: 1px solid rgba(128, 128, 128, 0.15);
+    background-color: @CARD_BG@;
+    border-radius: 10px;
+}
+
+QTabBar::tab {
+    background-color: rgba(128, 128, 128, 0.08);
+    color: @SUBTEXT_COLOR@;
+    padding: 10px 22px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-right: 4px;
+    font-weight: 600;
+}
+
+QTabBar::tab:selected {
+    background-color: @CARD_BG@;
+    color: @PRIMARY_COLOR@;
+}
+
+/* ── Form elements ── */
+QGroupBox {
+    border: 1px solid rgba(128, 128, 128, 0.15);
+    border-radius: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+QGroupBox::title {
+    color: @PRIMARY_COLOR@;
+    subcontrol-origin: margin;
+    left: 12px;
+    font-weight: 700;
+}
+
+QLineEdit, QComboBox {
+    background-color: rgba(128, 128, 128, 0.08);
+    border: 1px solid rgba(128, 128, 128, 0.18);
+    border-radius: 8px;
+    padding: 8px 10px;
+    color: @TEXT_COLOR@;
+    font-size: 13px;
+}
+
+QLineEdit:focus, QComboBox:focus {
+    border: 1.5px solid @PRIMARY_COLOR@;
+}
+
+QComboBox QAbstractItemView {
+    background-color: @CARD_BG@;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    selection-background-color: @PRIMARY_COLOR@;
+    selection-color: white;
+    color: @TEXT_COLOR@;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+/* ── Album Detail ── */
+#AlbumDetailInfo {
+    font-size: 14px;
+    font-weight: 700;
+    color: @TEXT_COLOR@;
+}
+
+/* ── Bottom Bar Text — theme-aware ── */
+#PlayerTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: @BOT_TEXT@;
+}
+
+#PlayerArtist {
+    font-size: 12px;
+    color: @BOT_SUB@;
+}
+
+/* ── Stats Page — theme-aware ── */
+#StatsView QLabel {
+    color: @TEXT_COLOR@;
+}
+
+#StatsHero {
+    background-color: @CARD_BG@;
+    border: 1px solid rgba(128, 128, 128, 0.12);
+    border-radius: 16px;
+}
+
+#StatCard {
+    background-color: @CARD_BG@;
+    border: 1px solid rgba(128, 128, 128, 0.12);
+    border-radius: 16px;
+}
+
+#HistoryRow {
+    background-color: rgba(128, 128, 128, 0.04);
+    border: 1px solid rgba(128, 128, 128, 0.08);
+    border-radius: 10px;
+}
+
+#HistoryRow:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+}
+
+/* ── Help Page — theme-aware ── */
+#HelpView QLabel {
+    color: @TEXT_COLOR@;
+}
+
+/* ── Now Playing — theme-aware ── */
+#NowPlayingTitle {
+    color: @TEXT_COLOR@;
+}
+
+#NowPlayingArtist {
+    color: @SUBTEXT_COLOR@;
+}
